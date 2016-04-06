@@ -51,7 +51,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(React.createClass({
                 <input type="text" onKeyPress={this.onInputKeyPress} onChange={this.onInputChange} value={this.state.value}/>
                 <button onClick={this.onSendClick}>Send</button>
                 <ul>
-                    {map(this.props.messages.toJS(), (message) => <li>{message}</li>)}
+                    {map(this.props.messages.toJS(), (message, index) => <li key={'msg-' + index}>{message}</li>)}
                 </ul>
             </div>
         );
