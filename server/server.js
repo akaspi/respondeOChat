@@ -9,6 +9,8 @@ var app = express();
 var isDevelopment = (process.env.NODE_ENV !== 'production');
 var static_path = path.join(path.resolve(path.dirname()), config.publicFolder);
 
+require('./socketServer');
+
 var prodListener = app.use(express.static(static_path))
     .get('/', function (req, res) {
         res.sendFile('index.html', {
@@ -20,7 +22,7 @@ var prodListener = app.use(express.static(static_path))
     });
 
 if (isDevelopment) {
-    var webpackDevConf = require('./webpack.config');
+    var webpackDevConf = require('./../webpack.config.js');
     var WebpackDevServer = require('webpack-dev-server');
 
     new WebpackDevServer(webpack(webpackDevConf), {

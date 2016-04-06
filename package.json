@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "webpack --config ./webpack-prod.config.js --progress --colors",
-    "start": "node server.js",
+    "start": "node server/server.js",
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -41,11 +41,16 @@
     "eslint": "^2.6.0",
     "eslint-plugin-react": "^4.2.3",
     "express": "^4.13.4",
+    "immutable": "^3.7.6",
+    "lodash": "^4.8.2",
     "node-sass": "^3.4.2",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
+    "react-redux": "^4.4.1",
+    "redux": "^3.3.1",
     "resolve-url-loader": "^1.4.3",
     "sass-loader": "^3.2.0",
+    "socket.io-client": "^1.4.5",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14"
   }
