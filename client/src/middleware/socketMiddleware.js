@@ -4,7 +4,7 @@ import { SEND_MESSAGE } from '../actions/actionTypes';
 import { messageReceive } from '../actions/actionCreators';
 
 import io from 'socket.io-client';
-import config from '../../server/config.json';
+import config from '../../../server/config.json';
 
 let socket;
 
@@ -21,7 +21,7 @@ export default store => next => action => {
 
     switch (action.type) {
     case SEND_MESSAGE:
-        window.socket.emit('message', action.message);
+        socket.emit('message', action.message);
         break;
     }
 

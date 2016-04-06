@@ -1,5 +1,5 @@
 node_modules/
 .idea/
 *.log
-dist/*
-!dist/index.html
+client/public/*
+!client/public/index.html

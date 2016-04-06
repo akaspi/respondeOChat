@@ -7,7 +7,7 @@ var config = require('./server/config.json');
 module.exports = {
     devtool: 'source-map',
     entry: [
-        './src/index.jsx'
+        './client/src/index.jsx'
     ],
     output: {
         path: path.join(path.resolve(path.dirname()), config.publicFolder),
