@@ -2,7 +2,7 @@
 
 var webpack = require('webpack');
 var path = require('path');
-var config = require('./config.json');
+var config = require('./server/config.json');
 
 module.exports = {
     devtool: 'source-map',
@@ -17,7 +17,9 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.jsx$/, exclude: /node_modules/, loaders: ['babel'] },
-            { test: /\.scss$/, exclude: /node_modules/, loaders: ['style', 'css', 'resolve-url', 'sass'] }
+            { test: /\.js$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] },
+            { test: /\.scss$/, exclude: /node_modules/, loaders: ['style', 'css', 'resolve-url', 'sass'] },
+            { test: /\.json$/, exclude: /node_modules/, loaders: ['json'] }
         ]
     },
     plugins: [
