@@ -2,6 +2,7 @@
 
 var webpack = require('webpack');
 var path = require('path');
+var autoprefixer = require('autoprefixer');
 var config = require('./server/config.json');
 
 module.exports = {
@@ -18,7 +19,7 @@ module.exports = {
         loaders: [
             { test: /\.jsx$/, exclude: /node_modules/, loaders: ['babel'] },
             { test: /\.js$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] },
-            { test: /\.scss$/, exclude: /node_modules/, loaders: ['style', 'css', 'resolve-url', 'sass'] },
+            { test: /\.scss$/, exclude: /node_modules/, loaders: ['style', 'css', 'resolve-url', 'sass', 'postcss'] },
             { test: /\.json$/, exclude: /node_modules/, loaders: ['json'] }
         ]
     },
@@ -27,5 +28,8 @@ module.exports = {
     ],
     resolve: {
         extensions: ['', '.js', '.jsx']
+    },
+    postcss: function () {
+        return [ autoprefixer ];
     }
 };
