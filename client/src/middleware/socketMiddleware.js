@@ -4,7 +4,7 @@ import { SEND_MESSAGE } from '../actions/actionTypes';
 import { messageReceive } from '../actions/actionCreators';
 
 import io from 'socket.io-client';
-import config from '../../../server/config.json';
+const config = require('../../../server/config.json');
 
 let socket;
 

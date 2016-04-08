@@ -43,6 +43,7 @@
     "eslint-plugin-react": "^4.2.3",
     "express": "^4.13.4",
     "immutable": "^3.7.6",
+    "json-loader": "^0.5.4",
     "lodash": "^4.8.2",
     "node-sass": "^3.4.2",
     "postcss-loader": "^0.8.2",
