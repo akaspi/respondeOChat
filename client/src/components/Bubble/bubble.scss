@@ -1,0 +1,101 @@
+.bubble {
+  @mixin bubbleColor($backgroundColor, $borderColor) {
+    border: 2px solid $borderColor;
+    background-color: $backgroundColor;
+
+    &.right:before {
+      border-color: transparent $borderColor;
+    }
+
+    &.left:before {
+      border-color: transparent $borderColor;
+    }
+
+    &.right:after {
+      border-color: transparent $backgroundColor;
+    }
+
+    &.left:after {
+      border-color: transparent $backgroundColor;
+    }
+
+    .title {
+      color: $borderColor;
+    }
+  }
+
+  max-width: 80%;
+  position: relative;
+  padding: 8px;
+  margin: 8px;
+  color: #333;
+  border-radius: 10px;
+  font-size: 12px;
+
+  &.right {
+    margin-right: 30px;
+
+    &:before {
+      top: 8px;
+      bottom: auto;
+      left: auto;
+      right: -20px;
+      border-width: 10px 0 10px 20px;
+    }
+
+    &:after {
+      top: 10px;
+      bottom: auto;
+      left: auto;
+      right: -16px;
+      border-width: 8px 0 8px 16px;
+    }
+  }
+
+  &.left {
+    margin-left: 30px;
+
+    &:before {
+      top: 8px;
+      bottom: auto;
+      left: -20px;
+      border-width: 10px 20px 10px 0;
+    }
+
+    &:after {
+      top: 10px;
+      bottom: auto;
+      left: -16px;
+      border-width: 8px 16px 8px 0;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    display: block;
+    width: 0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    display: block;
+    width: 0;
+  }
+
+  &.green {
+    @include bubbleColor(#ddffcc, #5a8f00);
+  }
+
+  &.blue {
+    @include bubbleColor(#9AE4E8, #02779E);
+  }
+
+  .title {
+    font-size: 12px;
+  }
+
+}

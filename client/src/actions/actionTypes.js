@@ -1,2 +1,4 @@
+export const SET_NICKNAME = 'SET_NICKNAME';
+
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const MESSAGE_RECEIVED = 'MESSAGE_RECEIVED';

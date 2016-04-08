@@ -20,9 +20,9 @@ export default store => next => action => {
     }
 
     switch (action.type) {
-    case SEND_MESSAGE:
-        socket.emit('message', action.message);
-        break;
+        case SEND_MESSAGE:
+            socket.emit('message', action.message);
+            break;
     }
 
     return next(action);
