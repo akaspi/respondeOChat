@@ -9,7 +9,7 @@ const config = require('../../../server/config.json');
 let socket;
 
 function initializeSocketIO(store) {
-    socket = socket || io(`${location.protocol}//${location.hostname}:${config.socketPort}`);
+    socket = socket || io(`${location.protocol}//${location.hostname}:${config.prodPort}`);
     socket.on('message', (message) => store.dispatch(messageReceive(message)));
 }
 

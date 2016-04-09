@@ -1,27 +1,28 @@
 /* eslint no-console: "off" */
 
 var _ = require('lodash');
-var config = require('./config.json');
-var Server = require('socket.io');
-var io = new Server().attach(config.socketPort);
 
 var connections = [];
 
-io.on('connection', function(socket) {
+module.exports = function(server) {
+  var io = require('socket.io').listen(server);
 
-    console.log('new socket is connected:', socket.id);
-    connections.push(socket);
+    io.on('connection', function(socket) {
 
-    socket.on('message', function(data) {
-        _.forEach(connections, function(connSocket) {
-            connSocket.emit('message', data);
+        console.log('new socket is connected:', socket.id);
+        connections.push(socket);
+
+        socket.on('message', function(data) {
+            _.forEach(connections, function(connSocket) {
+                connSocket.emit('message', data);
+            });
         });
-    });
-    
-    socket.on('disconnect', function() {
-        console.log('socket disconnected:', socket.id);
-        const index = connections.indexOf(socket);
-        connections.splice(index, 1);
-    });
 
-});
+        socket.on('disconnect', function() {
+            console.log('socket disconnected:', socket.id);
+            const index = connections.indexOf(socket);
+            connections.splice(index, 1);
+        });
+
+    });
+};
