@@ -43,15 +43,10 @@ export default connect(null, mapDispatchToProps)(React.createClass({
     },
 
     render() {
-        const okButtonClass = classNames({
-            'ok-button': true,
-            'disabled': !this.state.value
-        });
-
         return (
             <div className="home-page">
+                <h1 className="title">What is your nickname?</h1>
                 <input type="text" placeholder="nickname" onKeyPress={this.onInputKeyPress} onChange={this.onInputChange} value={this.state.value}/>
-                <div className={okButtonClass} onClick={this.state.value ? this.onClick : _.noop}>Go !</div>
             </div>
         );
     }
