@@ -1,16 +1,20 @@
 .chat {
-  min-height: 100vh;
+  $controls-width: 500px;
+
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   .chat-window {
-    width: 500px;
-    height: 500px;
+    margin: 10px;
+    flex: 1;
+    width: $controls-width;
     border: 1px solid #c2c2c2;
     border-radius: 5px;
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    overflow: auto;
+    box-sizing: border-box;
 
     .chat-message-wrapper {
       display: flex;
@@ -26,13 +30,13 @@
   }
 
   .footer {
-    display: flex;
-    width: 500px;
-    margin-top: 10px;
-    input {
-      flex: 1;
-      padding: 8px;
+    margin: 10px;
+    width: $controls-width;
+    box-sizing: border-box;
 
+    input {
+      width: 100%;
+      padding: 8px;
       box-sizing: border-box;
       border: 1px solid rgb(185,185,185);
       display: block;
@@ -40,12 +44,14 @@
       outline: none;
     }
 
-    .send-button {
-      width: 80px;
+  }
 
-      &:not([disabled]) {
-        cursor: pointer;
-      }
+  @media screen and (max-width: $controls-width){
+    .chat-window {
+      width: 100%;
+    }
+    .footer {
+      width: 100%;
     }
   }
 

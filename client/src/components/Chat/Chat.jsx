@@ -75,9 +75,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(React.createClass({
                     { _.map(this.props.messages.toJS(), createMessage.bind(this, this.props.nickname)) }
                 </div>
                 <div className="footer">
-                    <input type="text" onKeyPress={this.onInputKeyPress} onChange={this.onInputChange}
+                    <input type="text" placeholder="Type a message..." onKeyPress={this.onInputKeyPress} onChange={this.onInputChange}
                            value={this.state.value}/>
-                    <button className="send-button" disabled={!this.state.value} onClick={this.onSendClick}>Send</button>
                 </div>
             </div>
         );
